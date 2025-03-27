@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+        <link href="css/main.css" rel="stylesheet" />
+        <title>Local Music Party</title>
+    </head>
+    <body>
+        <div class="v204_1775">
+            <form class="contact-form" style="position: absolute; top: 1449px; left: 1094px; width: 586px;">
+                <h2 class="v207_1829" style="position: absolute; top: 0; left: 0;">Еще остались вопросы?</h2>
+                
+                <div class="input-group" style="position: absolute; top: 106px; left: 41px;">
+                    <input type="text" id="name" class="v207_1858" placeholder=" " required>
+                    <label for="name" class="input-label">Ваше имя</label>
+                </div>
+
+                <div class="input-group" style="position: absolute; top: 106px; left: 314px;">
+                    <input type="email" id="email" class="v207_1860" placeholder=" " required>
+                    <label for="email" class="input-label">Email</label>
+                </div>
+
+                <div class="input-group" style="position: absolute; top: 196px; left: 41px;">
+                    <textarea id="comment" class="v207_1861" placeholder=" " required></textarea>
+                    <label for="comment" class="input-label">Ваш комментарий</label>
+                </div>
+
+                <button type="submit" class="v207_1863" style="position: absolute; top: 341px; left: 37px;">
+                    <button type="submit" class="v207_1864">Отправить</button>
+                </button>
+            </form>
+        </div>
+            <div class="v207_1863"></div>
+            <div class="v207_1861"></div>
+            <div class="v207_1833"></div>
+            <div class="v207_1819"></div>
+            <div class="v207_1808"></div>
+            <div class="v204_1781"></div>
+            <span class="v204_1782">Логотип</span>
+            <span class="v204_1783">Социальные сети</span>
+            <span class="v204_1784">Кнопка для скачивания</span>
+            <span class="v204_1785">Мобильное приложение для поиска локальных мероприятий </span>
+            <div class="features-list">
+                <span class="v204_1787">
+                    <ul class="feature-items">
+                        <li>Афиша музыкальных мероприятий Большая подборка концертов, в том числе локальных артистов</li>
+                        <li>Анонсы концертов зарубежных артистов, которые редко приезжают в Россию</li>
+                        <li>Удобный поиск по городам, жанрам, площадкам, исполнителям</li>
+                        <li>Карта, на которой легко найти ближайшие мероприятия</li>
+                    </ul>
+                </span>
+            </div>
+            <span class="v204_1789">
+                <ul class="custom-list">
+                    <li>Ты сам предлагаешь мероприятие через наш сайт, после проверки модератором анонс появится в приложении</li>
+                    <li>Стоимость размещения бесплатна, ты можешь добавить свое мероприятие уже сейчас</li>
+                </ul>
+            </span>            
+            <span class="v207_1818">Local Music Party - приложение для всех артистов. Мы не знаем слова “популярность ”, никого не выделяем и не продвигаем, поэтому ты можешь узнать полную информацию обо всех музыкальных мероприятиях твоего города.</span>
+            <span class="v204_1791">
+                <ul class="custom-list">
+                    <li>Не пропустит концерт любимого исполнителя</li>
+                    <li>Cможет открыть для себя новые музыкальные мероприятия</li>
+                    <li>Откроет для себя новых, набирающих популярность артиста/группу</li>
+                    <li>Сможет запланировать поход на мероприятие заранее</li>
+                </ul>
+            </span>
+            <span class="v204_1790">Организотор</span>
+            <span class="v207_1820">Что внутри?</span>
+            <span class="v206_1799">FAQ</span>
+            <span class="v207_1828">Скачай сейчас</span>
+            <span class="v204_1792">Пользователь</span>
+            <span class="v204_1786">Local Music Party</span>
+            <div class="v207_1806"></div>
+            <div class="v207_1810"></div>
+            <span class="v207_1807">Приложение платное? </span>
+            <span class="v207_1809">Чем вы отличаетесь от любой другой афиши?</span>
+            <span class="v207_1811">Как добавляются мероприятия в приложение? </span>
+            <div class="v207_1812"></div>
+            <div class="v207_1813"></div>
+            <div class="v207_1814"></div>
+            <span class="v207_1815">+</span>
+            <span class="v207_1816">-</span>
+            <span class="v207_1817">+</span>
+            <div class="v207_1822"></div>
+            <div class="v207_1824"></div>
+            <div class="v207_1826"></div>
+            <div class="v207_1838"></div>
+            <div class="v207_1839"></div>
+            <span class="v207_1840">Логотип</span>
+            <span class="v207_1841">Контакты</span>
+            <span class="v207_1855">Компания</span>
+            <span class="v207_1843">localmusicparty@gmail.com</span>
+            <span class="v207_1856">О нас</span>
+            <span class="v207_1857">FAQ</span>
+            <span class="v207_1846">+7 (812) 987-65-43</span>
+            <div class="name"></div><div class="name"></div>
+         </div>
+    </body>
+
+    <script>
+        document.querySelector('.contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            
+            try {
+                const response = await fetch('script\main.js', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if(response.ok) {
+                    alert('Успешно отправлено!');
+                    e.target.reset();
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+            }
+        });
+        </script>
+</html>
