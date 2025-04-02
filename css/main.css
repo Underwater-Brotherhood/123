@@ -495,6 +495,8 @@ body {
   width: 586px;
   height: 428px;
   z-index: 100;
+  border: 5px solid black;
+  border-radius: 30px;
 }
 
 .input-group {
@@ -569,7 +571,7 @@ body {
 .v207_1829 {
   display: block !important;
   width: 337px !important;
-  top: 40px !important;
+  top: 20px !important;
   left: 40px !important;
   position: relative !important;
   margin-bottom: 80px !important;
