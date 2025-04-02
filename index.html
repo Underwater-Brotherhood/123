@@ -73,9 +73,47 @@
             <span class="v204_1786">Local Music Party</span>
             <div class="v207_1806"></div>
             <div class="v207_1810"></div>
-            <span class="v207_1807">Приложение платное? </span>
-            <span class="v207_1809">Чем вы отличаетесь от любой другой афиши?</span>
-            <span class="v207_1811">Как добавляются мероприятия в приложение? </span>
+            <!-- В разделе FAQ -->
+            <div class="faq-container" style="position: absolute; top: 1347px; left: 240px; width: 771px;">
+                <!-- Вопрос 1 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="v207_1813"></div>
+                        <span class="v207_1807">Приложение платное?</span>
+                        <span class="v207_1817">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="v207_1808"></div>
+                        <span class="answer-text">Полная версия приложения абсолютно бесплатна...</span>
+                    </div>
+                </div>
+
+                <!-- Вопрос 2 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="v207_1812"></div>
+                        <span class="v207_1809">Чем вы отличаетесь от любой другой афиши?</span>
+                        <span class="v207_1816">-</span>
+                    </div>
+                    <div class="faq-answer active">
+                        <div class="v207_1819"></div>
+                        <span class="v207_1818">Local Music Party - приложение для всех артистов...</span>
+                    </div>
+                </div>
+
+                <!-- Вопрос 3 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="v207_1814"></div>
+                        <span class="v207_1811">Как добавляются мероприятия в приложение?</span>
+                        <span class="v207_1815">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="v207_1810"></div>
+                        <span class="answer-text">Мероприятия добавляются через форму на сайте...</span>
+                    </div>
+                </div>
+            </div>
             <div class="v207_1812"></div>
             <div class="v207_1813"></div>
             <div class="v207_1814"></div>
@@ -118,5 +156,24 @@
                 console.error('Ошибка:', error);
             }
         });
+        function toggleFAQ(element) {
+            const faqItem = element.closest('.faq-item');
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = faqItem.querySelector('.v207_1817, .v207_1816, .v207_1815');
+            
+            // Закрываем другие элементы
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if(item !== faqItem) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('active');
+                    item.querySelector('.v207_1817, .v207_1816, .v207_1815').textContent = '+';
+                }
+            });
+
+            // Переключаем текущий элемент
+            faqItem.classList.toggle('active');
+            answer.classList.toggle('active');
+            icon.textContent = answer.classList.contains('active') ? '-' : '+';
+        }
         </script>
 </html>

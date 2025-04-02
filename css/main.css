@@ -44,36 +44,7 @@ body {
   left: 23px;
   overflow: hidden;
 }
-.v207_1819 {
-  width: 762px;
-  height: 188px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 1579px;
-  left: 243px;
-  border: 3px solid rgba(201,201,201,1);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  overflow: hidden;
-}
-.v207_1808 {
-  width: 771px;
-  height: 76px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 1555px;
-  left: 240px;
-  border: 3px solid rgba(0,0,0,1);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  overflow: hidden;
-}
+
 .v204_1781 {
   width: 100%;
   height: 96px;
@@ -178,18 +149,7 @@ body {
   opacity: 1;
   text-align: left;
 }
-.v207_1818 {
-  width: 670px;
-  color: rgba(24,24,24,1);
-  position: absolute;
-  top: 1651px;
-  left: 312px;
-  font-family: Inter;
-  font-weight: Regular;
-  font-size: 20px;
-  opacity: 1;
-  text-align: left;
-}
+
 .v204_1791 {
   width: 731px;
   color: rgba(24,24,24,1);
@@ -289,57 +249,7 @@ body {
   border-bottom-right-radius: 20px;
   overflow: hidden;
 }
-.v207_1810 {
-  width: 771px;
-  height: 76px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 1801px;
-  left: 240px;
-  border: 3px solid rgba(0,0,0,1);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  overflow: hidden;
-}
-.v207_1807 {
-  width: 337px;
-  color: rgba(35,35,35,1);
-  position: absolute;
-  top: 1472px;
-  left: 312px;
-  font-family: Inter;
-  font-weight: Semi Bold;
-  font-size: 24px;
-  opacity: 1;
-  text-align: left;
-}
-.v207_1809 {
-  width: 650px;
-  color: rgba(35,35,35,1);
-  position: absolute;
-  top: 1578px;
-  left: 312px;
-  font-family: Inter;
-  font-weight: Semi Bold;
-  font-size: 24px;
-  opacity: 1;
-  text-align: left;
-}
-.v207_1811 {
-  width: 650px;
-  color: rgba(35,35,35,1);
-  position: absolute;
-  top: 1824px;
-  left: 312px;
-  font-family: Inter;
-  font-weight: Semi Bold;
-  font-size: 24px;
-  opacity: 1;
-  text-align: left;
-}
+
 .v207_1812 {
   width: 28px;
   height: 28px;
@@ -370,42 +280,7 @@ body {
   left: 268px;
   border-radius: 50%;
 }
-.v207_1815 {
-  width: 17px;
-  color: rgba(255,255,255,1);
-  position: absolute;
-  top: 1822px;
-  left: 274px;
-  font-family: Inter;
-  font-weight: Semi Bold;
-  font-size: 24px;
-  opacity: 1;
-  text-align: left;
-}
-.v207_1816 {
-  width: 12px;
-  color: rgba(255,255,255,1);
-  position: absolute;
-  top: 1578px;
-  left: 277px;
-  font-family: Inter;
-  font-weight: Semi Bold;
-  font-size: 24px;
-  opacity: 1;
-  text-align: left;
-}
-.v207_1817 {
-  width: 17px;
-  color: rgba(255,255,255,1);
-  position: absolute;
-  top: 1470px;
-  left: 274px;
-  font-family: Inter;
-  font-weight: Semi Bold;
-  font-size: 24px;
-  opacity: 1;
-  text-align: left;
-}
+
 .v207_1822 {
   width: 320px;
   height: 95px;
@@ -709,4 +584,68 @@ body {
 input:focus, textarea:focus {
   outline: none;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+/* Добавить в CSS */
+.faq-container {
+  z-index: 100;
+}
+
+.faq-item {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.faq-question {
+  cursor: pointer;
+  position: relative;
+  height: 76px;
+  display: flex;
+  align-items: center;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  position: relative;
+  margin-left: 60px;
+  width: calc(100% - 60px);
+}
+
+.faq-answer.active {
+  max-height: 500px;
+}
+
+.v207_1807, .v207_1809, .v207_1811 {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  margin-left: 20px;
+  width: calc(100% - 100px);
+}
+
+.v207_1817, .v207_1816, .v207_1815 {
+  position: absolute !important;
+  right: 30px;
+  top: 50% !important;
+  transform: translateY(-50%);
+  margin: 0;
+}
+
+.v207_1818 {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  padding: 20px;
+  display: block;
+  width: calc(100% - 40px);
+}
+
+.v207_1808, .v207_1819, .v207_1810 {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: -1;
 }
