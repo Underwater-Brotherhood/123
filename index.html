@@ -5,6 +5,97 @@
         <link href="css/main.css" rel="stylesheet" />
         <title>Local Music Party</title>
     </head>
+
+    <script>
+        document.getElementById('mainForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const spinner = btn.querySelector('.loading-spinner');
+            const messageDiv = document.getElementById('formMessage');
+            
+            try {
+                // Показать состояние загрузки
+                btn.disabled = true;
+                spinner.style.display = 'inline';
+                messageDiv.style.display = 'none';
+
+                // Собрать данные
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    comment: document.getElementById('comment').value
+                };
+
+                // Отправка запроса
+                const response = await fetch('/api/send-to-telegram', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                // Успешная отправка
+                messageDiv.style.color = 'green';
+                messageDiv.textContent = 'Сообщение успешно отправлено!';
+                e.target.reset();
+
+            } catch (error) {
+                // Обработка ошибок
+                console.error('Error:', error);
+                messageDiv.style.color = 'red';
+                messageDiv.textContent = `Ошибка: ${error.message}`;
+            } finally {
+                // Восстановить состояние кнопки
+                btn.disabled = false;
+                spinner.style.display = 'none';
+                messageDiv.style.display = 'block';
+            }
+        });
+        function toggleFAQ(element) {
+            const faqItem = element.closest('.faq-item');
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = faqItem.querySelector('.v207_1817, .v207_1816, .v207_1815');
+            
+            // Закрываем другие элементы
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if(item !== faqItem) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('active');
+                    item.querySelector('.v207_1817, .v207_1816, .v207_1815').textContent = '+';
+                }
+            });
+
+            // Переключаем текущий элемент
+            faqItem.classList.toggle('active');
+            answer.classList.toggle('active');
+            icon.textContent = answer.classList.contains('active') ? '-' : '+';
+        }
+        function downloadFile() {
+            // Создаем содержимое файла
+            const text = 'Мобильное приложение для поиска локальных мероприятий';
+            
+            // Создаем Blob с текстом
+            const blob = new Blob([text], { type: 'text/plain' });
+            
+            // Создаем временную ссылку
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            
+            // Задаем имя файла
+            link.download = 'LMP.txt';
+            
+            // Эмулируем клик для скачивания
+            link.click();
+            
+            // Освобождаем память
+            URL.revokeObjectURL(link.href);
+        }
+    </script>
+
     <body>
         <div class="v204_1775">
             <form class="contact-form" style="position: absolute; top: 1445px; left: 1094px; width: 586px;">
@@ -26,8 +117,10 @@
                 </div>
 
                 <button type="submit" class="v207_1863" style="position: absolute; top: 341px; left: 42px;">
-                    <button type="submit" class="v207_1864">Отправить</button>
+                    Отправить
+                    <div class="loading-spinner" style="display: none;">⌛</div>
                 </button>
+                <div id="formMessage" style="display: none;"></div>
             </form>
         </div>
             <div class="v207_1863"></div>
@@ -143,64 +236,5 @@
          </div>
     </body>
 
-    <script>
-        document.querySelector('.contact-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(e.target);
-            
-            try {
-                const response = await fetch('script\main.js', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                if(response.ok) {
-                    alert('Успешно отправлено!');
-                    e.target.reset();
-                }
-            } catch (error) {
-                console.error('Ошибка:', error);
-            }
-        });
-        function toggleFAQ(element) {
-            const faqItem = element.closest('.faq-item');
-            const answer = faqItem.querySelector('.faq-answer');
-            const icon = faqItem.querySelector('.v207_1817, .v207_1816, .v207_1815');
-            
-            // Закрываем другие элементы
-            document.querySelectorAll('.faq-item').forEach(item => {
-                if(item !== faqItem) {
-                    item.classList.remove('active');
-                    item.querySelector('.faq-answer').classList.remove('active');
-                    item.querySelector('.v207_1817, .v207_1816, .v207_1815').textContent = '+';
-                }
-            });
 
-            // Переключаем текущий элемент
-            faqItem.classList.toggle('active');
-            answer.classList.toggle('active');
-            icon.textContent = answer.classList.contains('active') ? '-' : '+';
-        }
-        function downloadFile() {
-            // Создаем содержимое файла
-            const text = 'Мобильное приложение для поиска локальных мероприятий';
-            
-            // Создаем Blob с текстом
-            const blob = new Blob([text], { type: 'text/plain' });
-            
-            // Создаем временную ссылку
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            
-            // Задаем имя файла
-            link.download = 'LMP.txt';
-            
-            // Эмулируем клик для скачивания
-            link.click();
-            
-            // Освобождаем память
-            URL.revokeObjectURL(link.href);
-        }
-        </script>
 </html>
