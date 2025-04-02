@@ -1,0 +1,8 @@
+{
+    "name": "telegram-form",
+    "dependencies": {
+        "express": "^4.18.2",
+        "axios": "^1.6.2",
+        "cors": "^2.8.5"
+    }
+}
