@@ -371,7 +371,7 @@ body {
 .v207_1838 {
   width: 100%;
   height: 316px;
-  background: rgba(217,217,217,1);
+  background: #202020;
   opacity: 1;
   position: absolute;
   top: 2578px;
@@ -398,6 +398,7 @@ body {
 }
 .v207_1840 {
   width: 129px;
+  height: 129px;
   color: rgba(33,33,33,1);
   position: absolute;
   top: 2622px;
@@ -410,7 +411,7 @@ body {
 }
 .v207_1841 {
   width: 259px;
-  color: rgba(24,24,24,1);
+  color: rgb(255, 255, 255);
   position: absolute;
   top: 2630px;
   left: 850px;
@@ -422,7 +423,7 @@ body {
 }
 .v207_1855 {
   width: 259px;
-  color: rgba(24,24,24,1);
+  color: rgb(255, 255, 255);
   position: absolute;
   top: 2630px;
   left: 484px;
@@ -434,7 +435,7 @@ body {
 }
 .v207_1843 {
   width: 289px;
-  color: rgba(24,24,24,1);
+  color: rgb(255, 255, 255);
   position: absolute;
   top: 2677px;
   left: 850px;
@@ -446,7 +447,7 @@ body {
 }
 .v207_1856 {
   width: 289px;
-  color: rgba(24,24,24,1);
+  color: rgb(255, 255, 255);
   position: absolute;
   top: 2677px;
   left: 484px;
@@ -470,7 +471,7 @@ body {
 }
 .v207_1846 {
   width: 270px;
-  color: rgba(24,24,24,1);
+  color: rgb(255, 255, 255);
   position: absolute;
   top: 2717px;
   left: 850px;
