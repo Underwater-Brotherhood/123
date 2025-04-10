@@ -7,54 +7,6 @@
     </head>
 
     <script>
-        document.getElementById('mainForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const btn = document.getElementById('submitBtn');
-            const spinner = btn.querySelector('.loading-spinner');
-            const messageDiv = document.getElementById('formMessage');
-            
-            try {
-                // Показать состояние загрузки
-                btn.disabled = true;
-                spinner.style.display = 'inline';
-                messageDiv.style.display = 'none';
-
-                // Собрать данные
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    comment: document.getElementById('comment').value
-                };
-
-                // Отправка запроса
-                const response = await fetch('/api/send-to-telegram', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                // Успешная отправка
-                messageDiv.style.color = 'green';
-                messageDiv.textContent = 'Сообщение успешно отправлено!';
-                e.target.reset();
-
-            } catch (error) {
-                // Обработка ошибок
-                console.error('Error:', error);
-                messageDiv.style.color = 'red';
-                messageDiv.textContent = `Ошибка: ${error.message}`;
-            } finally {
-                // Восстановить состояние кнопки
-                btn.disabled = false;
-                spinner.style.display = 'none';
-                messageDiv.style.display = 'block';
-            }
-        });
         function toggleFAQ(element) {
             const faqItem = element.closest('.faq-item');
             const answer = faqItem.querySelector('.faq-answer');
@@ -98,7 +50,7 @@
 
     <body>
         <div class="v204_1775">
-            <form class="contact-form" style="position: absolute; top: 1445px; left: 1094px; width: 586px;">
+            <form id="mainForm" class="contact-form" style="position: absolute; top: 1445px; left: 1094px; width: 586px;">
                 <h2 class="v207_1829" style="position: absolute; top: 0; left: 500px;">Еще остались вопросы?</h2>
                 
                 <div class="input-group" style="position: absolute; top: 106px; left: 41px;">
@@ -234,6 +186,57 @@
             <span class="v207_1846">+7 (812) 987-65-43</span>
             <div class="name"></div><div class="name"></div>
          </div>
+
+        <script src="public\js\main.js" defer>
+            document.getElementById('mainForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const spinner = btn.querySelector('.loading-spinner');
+            const messageDiv = document.getElementById('formMessage');
+            
+            try {
+                // Показать состояние загрузки
+                btn.disabled = true;
+                spinner.style.display = 'inline';
+                messageDiv.style.display = 'none';
+
+                // Собрать данные
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    comment: document.getElementById('comment').value
+                };
+
+                // Отправка запроса
+                const response = await fetch('/api/send-to-telegram', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                // Успешная отправка
+                messageDiv.style.color = 'green';
+                messageDiv.textContent = 'Сообщение успешно отправлено!';
+                e.target.reset();
+
+            } catch (error) {
+                // Обработка ошибок
+                console.error('Error:', error);
+                messageDiv.style.color = 'red';
+                messageDiv.textContent = `Ошибка: ${error.message}`;
+            } finally {
+                // Восстановить состояние кнопки
+                btn.disabled = false;
+                spinner.style.display = 'none';
+                messageDiv.style.display = 'block';
+            }
+        });
+        </script>
     </body>
 
 
