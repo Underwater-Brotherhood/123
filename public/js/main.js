@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.disabled = true;
           spinner.style.display = 'inline';
 
-          const response = await fetch('/api/send', {
+          const response = await fetch('/api/send.js', {
               method: 'POST',
               headers: { 
                   'Content-Type': 'application/json',
@@ -51,9 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
           showAlert('Сообщение успешно отправлено!', 'success');
           contactForm.reset();
 
-      } catch (error) {
-          showAlert(error.message || 'Ошибка соединения', 'error');
-          console.error('Ошибка:', error);
+
       } finally {
           submitBtn.disabled = false;
           spinner.style.display = 'none';

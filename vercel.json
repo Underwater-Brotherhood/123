@@ -1,6 +1,7 @@
 {
     "version": 2,
-    "public": true,
-    
-    "rewrites": [{ "source": "/api/(.*)", "destination": "/api/send.js" }]
-}
+    "routes": [
+      { "src": "/api/.*", "dest": "/api/send.js" }
+    ]
+  }
+  
